@@ -6,15 +6,17 @@ Analysis of Spotify’s Global Weekly Chart data with programmatically extracted
 
 ## Research Questions
 
-1. **What audio characteristics are most common among songs in Spotify’s Global Top 50?**  
-   We examine whether globally popular songs share similar musical patterns by analyzing tempo, energy, spectral centroid, spectral rolloff, MFCCs, and chroma features to identify dominant acoustic traits of mainstream hits.
+1.   **What audio characteristics are most common among songs in Spotify’s Global Top 50 playlist?**
 
-2. **Do the audio characteristics of Global Top 50 songs vary over time?**  
-   We investigate whether the dominant sound of popular music changes across time periods by analyzing temporal variation in tempo, energy, and timbral descriptors in weekly chart data.
+     We want to examine whether globally popular songs share similar musical patterns. By analyzing extracted audio features such as tempo, energy, spectral centroid, spectral rolloff, MFCC coefficients, and chroma features, we aim to identify dominant acoustic characteristics that define mainstream global hits.
 
-3. **Do emotionally expressive audio features correlate with higher global popularity?**  
-   We explore whether features such as energy, tempo, and spectral brightness correlate with chart rank, streams, and weeks on chart to understand if specific musical qualities contribute to global success.
+2.   **Do the audio characteristics of Spotify’s Global Top 50 songs vary over time?**
+    
+     We want to investigate whether the dominant sound of globally popular music changes across different time periods. Using weekly Global Top 50 data, we analyze temporal variation in tempo, energy, and timbral descriptors to detect stylistic trends. This allows us to examine whether mainstream music remains stable or evolves dynamically over time.
 
+3. **Do emotionally expressive audio features correlate with higher global popularity?**
+    
+    We want to explore whether certain emotionally associated features (e.g., higher energy, faster tempo, brighter spectral characteristics) are associated with higher chart rankings or greater streaming counts. By examining relationships between audio features and popularity metrics (rank, streams, weeks on chart), we aim to understand whether specific musical qualities systematically contribute to global success.
 ---
 
 ## Pipeline Overview
