@@ -25,8 +25,8 @@ The project is split into two notebooks:
 
 | Notebook | Purpose |
 |----------|--------|
-| **`spotify_chart_scraper.ipynb`** | Scrapes [Spotify Charts](https://charts.spotify.com) (regional-global-weekly) and downloads each week’s CSV automatically. |
-| **`audio_feature_extraction.ipynb`** | Merges weekly CSV files into one dataset and extracts audio features using **librosa** (with audio sourced via **yt-dlp** from YouTube). |
+| **`notebooks/01_scrape_weekly_charts.ipynb`** | Scrapes [Spotify Charts](https://charts.spotify.com) (regional-global-weekly) and downloads each week’s CSV automatically. |
+| **`notebooks/02_02_extract_audio_features.ipynb`** | Merges weekly CSV files into one dataset and extracts audio features using **librosa** (with audio sourced via **yt-dlp** from YouTube). |
 
 **Run order:** Run the chart scraper first to obtain weekly CSVs; then run the audio feature notebook (point it at the folder containing those CSVs).
 
@@ -59,7 +59,7 @@ The project is split into two notebooks:
 
 ## Setup
 
-### Chart scraper (`spotify_chart_scraper.ipynb`)
+### Chart scraper (`notebooks/01_scrape_weekly_charts.ipynb`)
 
 ```bash
 pip install selenium webdriver-manager pandas
@@ -68,14 +68,14 @@ pip install selenium webdriver-manager pandas
 - **First run:** Use the notebook to save login cookies (manual Spotify login in the browser once).
 - **Later runs:** Scrape weekly charts; the notebook batches results by month (e.g. `spotify_weekly_data_2021-01.csv`).
 
-### Audio feature extraction (`audio_feature_extraction.ipynb`)
+### Audio feature extraction (`notebooks/02_02_extract_audio_features.ipynb`)
 
 ```bash
 pip install librosa numpy pandas yt_dlp
 ```
 
 - **FFmpeg** is required for `yt_dlp` (audio extraction).
-- Set `CHART_CSV_DIR` (or equivalent path variable) in the notebook to the directory containing your weekly chart CSVs.
+- Set `CHART_CSV_DIR` (or equivalent path variable) in the notebook to the directory containing your weekly chart CSVs (recommended: `data/raw/`).
 
 ---
 
@@ -83,11 +83,34 @@ pip install librosa numpy pandas yt_dlp
 
 - **Chart scraper:** Monthly CSV files (e.g. `spotify_weekly_data_YYYY-MM.csv`) and a cookie file for authenticated sessions.
 - **Audio notebook:**  
-  - `unique_songs_audio_features.csv` — one row per unique track with extracted features.  
-  - `final_songs_with_audio_features.csv` — full chart dataset with audio features merged in.
+  - `data/processed/unique_songs_audio_features.csv` — one row per unique track with extracted features.  
+  - `data/processed/processed_chart_tracks_audio_features.csv` — full chart dataset with audio features merged in.
 
 ---
 
 ## Repository
 
 **GitHub:** [https://github.com/Irene-Wu-1002/Spotify-Trend-Analyzer](https://github.com/Irene-Wu-1002/Spotify-Trend-Analyzer)
+
+## Folder Structure
+
+```text
+Spotify-Trend-Analyzer/
+├── notebooks/
+│   ├── 04_exploratory_data_analysis.ipynb
+│   ├── 03_enrich_artist_features.ipynb
+│   ├── 02_extract_audio_features.ipynb
+│   ├── 05_hypothesis_testing.ipynb
+│   └── 01_scrape_weekly_charts.ipynb
+├── data/
+│   ├── raw/
+│   │   ├── raw_artist_popularity_scores.csv
+│   │   └── raw_spotify_top50_eda_input.csv
+│   └── processed/
+│       ├── processed_chart_tracks_audio_features.csv
+│       └── processed_chart_tracks_enriched_features.csv
+├── docs/
+├── reports/
+├── src/
+└── README.md
+```
