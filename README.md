@@ -85,10 +85,6 @@ The project is split into seven notebooks. They are numbered in run order:
 
 ### Data pipeline (notebooks 01–03)
 
-######test'
-aeqlwjelkqwe
-qwkejqlwkje
-
 ```bash
 pip install selenium webdriver-manager pandas librosa numpy yt_dlp lxml
 ```
